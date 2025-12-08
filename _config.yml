@@ -2,7 +2,7 @@
 # Site settings
 # -----------------------------------------------------------------------------
 
-title: Hengxiang Zhang # the website title (if blank, full name will be used instead)
+# title: Hengxiang Zhang # the website title (if blank, full name will be used instead)
 first_name: Hengxiang
 middle_name:
 last_name: Zhang
@@ -268,8 +268,8 @@ display_categories: ["external-services"] # these categories will be displayed o
 # -----------------------------------------------------------------------------
 
 scholar:
-  last_name: [Einstein]
-  first_name: [Albert, A.]
+  last_name: [Zhang]
+  first_name: [Hengxiang]
 
   style: apa
   locale: en
