@@ -1,17 +1,17 @@
 ---
 layout: about
-title: about
+title: About
 permalink: /
-subtitle: <a href='#'>Affiliations</a>. Address. Contacts. Motto. Etc.
+# subtitle: <a href='#'>Affiliations</a>. Address. Contacts. Motto. Etc.
 
 profile:
   align: right
   image: prof_pic.jpg
   image_circular: false # crops the image to make it circular
-  more_info: >
-    <p>555 your office number</p>
-    <p>123 your address street</p>
-    <p>Your City, State 12345</p>
+  # more_info: >
+  #   <p>555 your office number</p>
+  #   <p>123 your address street</p>
+  #   <p>Your City, State 12345</p>
 
 selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
@@ -27,9 +27,7 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-I am a second-year Ph.D. student at Department of Statistics and Data Science in Southern University of Science and Technology (SUSTech), supervised by Prof. Hongxin Wei.
-
-Before that, I was an M.S. student at University of Electronic Science and Technology of China (UESTC)
+I am a second-year Ph.D. student at Department of Statistics and Data Science in Southern University of Science and Technology (SUSTech), supervised by [Prof. Hongxin Wei](https://hongxin001.github.io/). I am also fortunate to collaborate with [Prof. Sharon Yixuan Li](https://pages.cs.wisc.edu/~sharonli/). Previously, I worked as an algorithm engineer at [RoboSense Technology](https://www.robosense.ai/en/index/index), developing LiDAR perception algorithms for autonomous driving. Prior to that, I received my M.S. degree from the University of Electronic Science and Technology of China.
 
 My research interest is the area of Machine Learning and Computer Vision. I am currently focusing on Privacy and Trustworthy Generative AI.
 

@@ -220,7 +220,7 @@ ul.task-list input[type="checkbox"] {
 
 @media (min-width: 576px) {
   .profile {
-    width: 30%;
+    width: 20%;
 
     .address {
       p {
@@ -739,6 +739,11 @@ footer.sticky-bottom {
     padding-top: 1rem;
     margin-top: 2rem;
     text-align: right;
+  }
+
+  // add spacing between news and publications
+  .news {
+    margin-bottom: 2.5rem;
   }
 
   ol.bibliography {
