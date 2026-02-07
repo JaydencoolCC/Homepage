@@ -6,10 +6,19 @@ layout: default
     <h1 class="post-title">
       {% if site.title == 'blank' %}
         <!-- <span class="font-weight-bold">{{ site.first_name }}</span> {{ site.middle_name }} -->
-        <span>{{ site.first_name }}</span> {{ site.middle_name }}
-        {{ site.last_name }}
+        <span class="name-inline">
+          <span class="name-en"><span>{{ site.first_name }}</span> {{ site.middle_name }} {{ site.last_name }}</span>
+          {% if site.name_zh_image %}
+            <img class="name-zh-img" src="{{ site.name_zh_image | relative_url }}" alt="Chinese name">
+          {% endif %}
+        </span>
       {% else %}
-        {{ site.title }}
+        <span class="name-inline">
+          <span class="name-en">{{ site.title }}</span>
+          {% if site.name_zh_image %}
+            <img class="name-zh-img" src="{{ site.name_zh_image | relative_url }}" alt="Chinese name">
+          {% endif %}
+        </span>
       {% endif %}
     </h1>
     <p class="desc">{{ page.subtitle }}</p>

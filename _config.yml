@@ -6,6 +6,7 @@ title: blank # the website title (if blank, full name will be used instead)
 first_name: Hengxiang
 middle_name:
 last_name: Zhang
+name_zh_image: assets/img/publication_preview/name.jpg
 contact_note: >
   # You can even add a little note about which of these is the best way to reach you.
   Email: jaydencoolca@hotmail.com

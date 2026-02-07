@@ -595,6 +595,20 @@ footer.sticky-bottom {
   mjx-container[jax="CHTML"][display="true"] {
     display: unset;
   }
+
+  .name-inline {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .name-zh-img {
+    height: 1.0em;
+    width: auto;
+    transform: translateY(0.06em);
+    display: inline-block;
+  }
 }
 
 .post-list {
@@ -753,9 +767,6 @@ footer.sticky-bottom {
 
     li {
       margin-bottom: 1rem;
-
-      .preview {
-      }
 
       .abbr {
         margin-bottom: 0.5rem;
