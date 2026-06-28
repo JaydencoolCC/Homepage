@@ -11,10 +11,12 @@ hide_title: true
 <!-- _pages/publications.md -->
 
 <div class="research-intro" markdown="1">
-My main research interests are in generative modelling and representation learning of media, including audio/music, images and video, and diffusion models in particular. I have also worked on music recommendation and image classification in the past. Selected papers and projects are listed below, please refer to Google Scholar for [a complete list of my publications](https://scholar.google.com/citations?user=yNNIKJsAAAAJ).
+My research interests are in trustworthy generative AI and post-training, including safety, privacy and data contamination, as well as diffusion language models and distillation.
+I have worked on safety and data contamination in the past. I also work on reliable LLM evaluation, seeking to identify evaluation illusions and pitfalls that can obscure models’ true capabilities and method performance. Selected papers and projects are listed below.
 </div>
 
 <h2 class="paper-section-title">Papers</h2>
+<p class="paper-note">* indicates equal contribution.</p>
 
 <div class="publications">
 

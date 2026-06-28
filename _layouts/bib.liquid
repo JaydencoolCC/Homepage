@@ -56,12 +56,17 @@
   <div id="{{ entry.key }}" class="{% if has_publication_side_column %}col-sm-10{% else %}col-sm-12{% endif %}">
     <!-- Title -->
     <div class="title">
-      {% if entry.arxiv %}
-        <a href="https://arxiv.org/abs/{{ entry.arxiv }}" class="title-link">{{ entry.title }}</a>
-      {% elsif entry.url %}
+      {% if entry.url %}
         <a href="{{ entry.url }}" class="title-link">{{ entry.title }}</a>
+      {% elsif entry.arxiv %}
+        <a href="https://arxiv.org/abs/{{ entry.arxiv }}" class="title-link">{{ entry.title }}</a>
       {% else %}
         {{ entry.title }}
+      {% endif %}
+      {% if entry.project_url %}
+        <a href="{{ entry.project_url }}" class="project-link" aria-label="Project link" title="Project">
+          <img class="hf-icon" src="https://huggingface.co/front/assets/huggingface_logo-noborder.svg" alt="" aria-hidden="true">
+        </a>
       {% endif %}
     </div>
     <!-- Author -->
