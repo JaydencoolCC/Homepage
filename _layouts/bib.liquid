@@ -1,7 +1,14 @@
 ---
 ---
 <div class="row">
+  {% assign has_publication_side_column = false %}
   {% if site.enable_publication_thumbnails %}
+    {% if entry.abbr or entry.preview or entry.award %}
+      {% assign has_publication_side_column = true %}
+    {% endif %}
+  {% endif %}
+
+  {% if has_publication_side_column %}
     <div class="col col-sm-2 abbr">
       {%- if entry.abbr -%}
         {%- if site.data.venues[entry.abbr] -%}
@@ -46,96 +53,68 @@
   {% endif %}
 
   <!-- Entry bib key -->
-  <div id="{{ entry.key }}" class="{% if site.enable_publication_thumbnails %}col-sm-8{% else %}col-sm-10{% endif %}">
+  <div id="{{ entry.key }}" class="{% if has_publication_side_column %}col-sm-10{% else %}col-sm-12{% endif %}">
     <!-- Title -->
-    <div class="title">{{ entry.title }}</div>
+    <div class="title">
+      {% if entry.arxiv %}
+        <a href="https://arxiv.org/abs/{{ entry.arxiv }}" class="title-link">{{ entry.title }}</a>
+      {% elsif entry.url %}
+        <a href="{{ entry.url }}" class="title-link">{{ entry.title }}</a>
+      {% else %}
+        {{ entry.title }}
+      {% endif %}
+    </div>
     <!-- Author -->
     <div class="author">
       {% assign author_array_size = entry.author_array | size %}
 
       {% assign author_array_limit = author_array_size %}
-      {% if site.max_author_limit and author_array_size > site.max_author_limit %}
-        {% assign author_array_limit = site.max_author_limit %}
-      {% endif %}
 
-      {%- for author in entry.author_array limit: author_array_limit -%}
-        {% assign author_is_self = false %}
-        {%- assign author_last_name = author.last | regex_replace: '[*∗†‡§¶‖&^]', '' -%}
-        {%- assign author_last_html = author.last | regex_replace: '([*∗†‡§¶‖&^]+)', '<sup>\1</sup>' -%}
-        {% if site.scholar.last_name contains author_last_name %}
-          {% if site.scholar.first_name contains author.first %}
-            {% assign author_is_self = true %}
-          {% endif %}
-        {%- endif -%}
-        {% assign coauthor_url = null %}
-        {%- assign clean_last_name = author_last_name | downcase | remove_accents -%}
-        {% if site.data.coauthors[clean_last_name] %}
-          {%- for coauthor in site.data.coauthors[clean_last_name] -%}
-            {% if coauthor.firstname contains author.first %}
-              {%- assign coauthor_url = coauthor.url -%}
-              {% break %}
+      <span class="author-list">
+        {% assign rendered_author_count = 0 %}
+        {%- for author in entry.author_array -%}
+          {% assign author_is_self = false %}
+          {%- assign author_last_name = author.last | regex_replace: '[*∗†‡§¶‖&^]', '' -%}
+          {%- assign author_last_html = author.last | regex_replace: '([*∗†‡§¶‖&^]+)', '<sup>\1</sup>' -%}
+          {% if author_last_name == 'others' %}
+            {%- if rendered_author_count > 0 -%}, {% endif -%}
+            et al.
+            {% assign rendered_author_count = rendered_author_count | plus: 1 %}
+          {% else %}
+            {% if site.scholar.last_name contains author_last_name %}
+              {% if site.scholar.first_name contains author.first %}
+                {% assign author_is_self = true %}
+              {% endif %}
             {%- endif -%}
-          {% endfor %}
-        {%- endif -%}
-
-        {%- if forloop.length > 1 -%}
-          {% if forloop.first == false -%}
-            {%- if forloop.length > 2 %}, {% elsif forloop.length == 2 %}  {% endif %}
-          {%- endif %}
-          {%- if forloop.last and author_array_limit == author_array_size %}and {% endif -%}
-        {% endif %}
-        {%- if author_is_self -%}
-          <em>
-            {{- author.first }}
-            {{ author_last_html -}}
-          </em>
-        {%- else -%}
-          {%- if coauthor_url -%}
-            <a href="{{ coauthor_url }}">
-              {{- author.first }}
-              {{ author_last_html -}}
-            </a>
-          {%- else -%}
-            {{- author.first }}
-            {{ author_last_html -}}
+            {%- if rendered_author_count > 0 -%}, {% endif -%}
+            {%- if author_is_self -%}
+              <em>{{ author.first }} {{ author_last_html }}</em>
+            {%- else -%}
+              {{ author.first }} {{ author_last_html }}
+            {% endif %}
+            {% assign rendered_author_count = rendered_author_count | plus: 1 %}
           {% endif %}
-        {%- endif -%}
-      {% endfor %}
-      {%- assign more_authors = author_array_size | minus: author_array_limit -%}
-
-      {%- assign more_authors_hide = more_authors | append: ' more author' -%}
-      {% if more_authors > 0 %}
-        {%- if more_authors > 1 -%}
-          {% assign more_authors_hide = more_authors_hide | append: 's' %}
-        {%- endif -%}
-        {% assign more_authors_show = '' %}
-        {%- for author in entry.author_array offset: author_array_limit -%}
-          {% assign more_authors_show = more_authors_show | append: author.first | append: ' ' | append: author.last %}
-          {% unless forloop.last %}
-            {% assign more_authors_show = more_authors_show | append: ', ' %}
-          {% endunless %}
         {%- endfor -%}
-        {%- assign more_authors_show = more_authors_show | regex_replace: '([*∗†‡§¶‖&^]+)', '<sup>\1</sup>' -%}
-        , and
-        <span
-          class="more-authors"
-          title="click to view {{ more_authors_hide }}"
-          onclick="
-              var element = $(this);
-              element.attr('title', '');
-              var more_authors_text = element.text() == '{{ more_authors_hide }}' ? '{{ more_authors_show }}' : '{{ more_authors_hide }}';
-              var cursorPosition = 0;
-              var textAdder = setInterval(function(){
-                element.html(more_authors_text.substring(0, cursorPosition + 1));
-                if (++cursorPosition == more_authors_text.length){
-                  clearInterval(textAdder);
-                }
-            }, '{{ site.more_authors_animation_delay }}');
-          "
-        >
-          {{- more_authors_hide -}}
-        </span>
-      {% endif %}
+      </span>
+      <span class="author-compact d-none">
+        {% assign rendered_author_count = 0 %}
+        {%- for author in entry.author_array -%}
+          {%- assign author_last_name = author.last | regex_replace: '[*∗†‡§¶‖&^]', '' -%}
+          {% if author_last_name == 'others' %}
+            {%- if rendered_author_count > 0 -%}|{%- endif -%}
+            et al.
+            {% assign rendered_author_count = rendered_author_count | plus: 1 %}
+          {% else %}
+            {%- if rendered_author_count > 0 -%}|{%- endif -%}
+            {%- if site.scholar.last_name contains author_last_name and site.scholar.first_name contains author.first -%}
+              <em>{{ author.first }} {{ author.last | regex_replace: '([*∗†‡§¶‖&^]+)', '<sup>\1</sup>' }}</em>
+            {%- else -%}
+              {{ author.first }} {{ author.last | regex_replace: '([*∗†‡§¶‖&^]+)', '<sup>\1</sup>' }}
+            {%- endif -%}
+            {% assign rendered_author_count = rendered_author_count | plus: 1 %}
+          {% endif %}
+        {%- endfor -%}
+      </span>
       {% if entry.annotation %}
         <i
           class="fa-solid fa-circle-info ml-1"
@@ -154,7 +133,13 @@
     {% if entry.type == 'article' %}
       {% capture entrytype %}<em>{{ entry.journal }}</em>{% endcapture %}
     {% elsif proceedings contains entry.type %}
-      {% capture entrytype %}<em>In {{ entry.booktitle }}</em>{% endcapture %}
+      {% if entry.booktitle %}
+        {% capture entrytype %}<em>In {{ entry.booktitle }}</em>{% endcapture %}
+      {% elsif entry.journal %}
+        {% capture entrytype %}<em>{{ entry.journal }}</em>{% endcapture %}
+      {% else %}
+        {% capture entrytype %}{% endcapture %}
+      {% endif %}
     {% elsif thesis contains entry.type %}
       {% capture entrytype %}<em>{{ entry.school }}</em>{% endcapture %}
     {% else %}
@@ -176,15 +161,14 @@
     {% if hook_exists == 'true' %}
       {% include hook/bib.liquid %}
     {% endif %}
-    {% assign entrytype_text = entrytype | strip_html | strip %}
-    {% capture periodical %}{{ entrytype }}{% if entrytype_text != "" and entryyear != "" %}, {% endif %}{{ entrymonth }}{{ entryyear }}{% endcapture %}
-    <div class="periodical">
-      {{ periodical | strip }}
-    </div>
-    <div class="periodical">
-      {{ entry.note | strip }}
-    </div>
-
+    {% assign show_publisher = entry.publisher | downcase %}
+    {% if show_publisher == 'true' or show_publisher == 'ture' %}
+      {% assign entrytype_text = entrytype | strip_html | strip %}
+      {% capture periodical %}{{ entrytype }}{% if entrytype_text != "" and entryyear != "" %}, {% endif %}{{ entrymonth }}{{ entryyear }}{% endcapture %}
+      <div class="periodical">
+        {{ periodical | strip }}
+      </div>
+    {% endif %}
     <!-- Links/Buttons -->
     <div class="links">
       {% if entry.award %}
@@ -197,9 +181,6 @@
       {% endif %}
       {% if entry.doi %}
         <a href="https://doi.org/{{ entry.doi }}" class="btn btn-sm z-depth-0" role="button">DOI</a>
-      {% endif %}
-      {% if entry.arxiv %}
-        <a href="http://arxiv.org/abs/{{ entry.arxiv }}" class="btn btn-sm z-depth-0" role="button">arXiv</a>
       {% endif %}
       {% if entry.bibtex_show %}
         <a class="bibtex btn btn-sm z-depth-0" role="button">Bib</a>

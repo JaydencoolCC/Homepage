@@ -7,9 +7,7 @@ first_name: Hengxiang
 middle_name:
 last_name: Zhang
 name_zh_image: assets/img/publication_preview/name.jpg
-contact_note: >
-  # You can even add a little note about which of these is the best way to reach you.
-  Email: jaydencoolca@hotmail.com
+contact_note:
 description: > # the ">" symbol means to ignore newlines until "footer_text:"
   A simple, whitespace theme for academics. Based on [*folio](https://github.com/bogoli/-folio) design.
 footer_text: >
@@ -53,7 +51,7 @@ repo_trophies:
 
 navbar_fixed: true
 footer_fixed: true
-search_enabled: true
+search_enabled: false
 socials_in_search: true
 posts_in_search: true
 bib_search: true
@@ -290,7 +288,7 @@ scholar:
   details_link: Details
 
   query: "@*"
-  group_by: year
+  group_by: none
   group_order: descending
 
 # Display different badges withs stats for your publications
@@ -329,9 +327,9 @@ filtered_bibtex_keywords:
     working_paper,
   ]
 
-# Maximum number of authors to be shown for each publication (more authors are visible on click)
-max_author_limit: 3 # leave blank to always show all authors
-more_authors_animation_delay: 10 # more authors are revealed on click using animation; smaller delay means faster animation
+# Maximum number of authors to be shown before client-side fitting.
+max_author_limit: # leave blank to let each line show as many authors as fit
+more_authors_animation_delay: 10
 
 # Enables publication thumbnails. If disabled, none of the publications will display thumbnails, even if specified in the bib entry.
 enable_publication_thumbnails: true
@@ -447,7 +445,7 @@ third_party_libraries:
     version: "5.5.0"
   google_fonts:
     url:
-      fonts: "https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons&display=swap"
+      fonts: "https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Comic+Neue:400,700|Material+Icons&display=swap"
   highlightjs:
     integrity:
       css:

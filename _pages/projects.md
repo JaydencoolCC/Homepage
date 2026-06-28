@@ -2,64 +2,38 @@
 layout: page
 title: Projects
 permalink: /projects/
-description: A growing collection of your cool projects.
+description: Selected research and benchmark projects.
 nav: true
 nav_order: 3
-display_categories: [work, fun]
-horizontal: false
+hide_title: true
 ---
 
 <!-- pages/projects.md -->
-<div class="projects">
-{% if site.enable_project_categories and page.display_categories %}
-  <!-- Display categorized projects -->
-  {% for category in page.display_categories %}
-  <a id="{{ category }}" href=".#{{ category }}">
-    <h2 class="category">{{ category }}</h2>
-  </a>
-  {% assign categorized_projects = site.projects | where: "category", category %}
-  {% assign sorted_projects = categorized_projects | sort: "importance" %}
-  <!-- Generate cards for each project -->
-  {% if page.horizontal %}
-  <div class="container">
-    <div class="row row-cols-1 row-cols-md-2">
-    {% for project in sorted_projects %}
-      {% include projects_horizontal.liquid %}
-    {% endfor %}
-    </div>
-  </div>
-  {% else %}
-  <div class="row row-cols-1 row-cols-md-3">
-    {% for project in sorted_projects %}
-      {% include projects.liquid %}
-    {% endfor %}
-  </div>
-  {% endif %}
-  {% endfor %}
-
-{% else %}
-
-<!-- Display projects without categories -->
+<div class="project-intro">
+  <p>Some notes and thoughts on research, projects, and things I am learning.</p>
+</div>
 
 {% assign sorted_projects = site.projects | sort: "importance" %}
-
-  <!-- Generate cards for each project -->
-
-{% if page.horizontal %}
-
-  <div class="container">
-    <div class="row row-cols-1 row-cols-md-2">
-    {% for project in sorted_projects %}
-      {% include projects_horizontal.liquid %}
-    {% endfor %}
-    </div>
-  </div>
+<div class="projects project-list">
+{% for project in sorted_projects %}
+  {% if project.redirect %}
+    {% assign project_url = project.redirect %}
   {% else %}
-  <div class="row row-cols-1 row-cols-md-3">
-    {% for project in sorted_projects %}
-      {% include projects.liquid %}
-    {% endfor %}
-  </div>
+    {% assign project_url = project.url | relative_url %}
   {% endif %}
-{% endif %}
+  <article class="project-feature">
+    {% if project.img %}
+      <a class="project-feature-media" href="{{ project_url }}" {% if project.redirect %}target="_blank" rel="noopener noreferrer"{% endif %} aria-label="{{ project.title }}">
+        {% include figure.liquid loading="eager" path=project.img alt=project.title class="img-fluid" %}
+      </a>
+    {% endif %}
+    <div class="project-feature-content">
+      <h2 class="project-feature-title">{{ project.title }}</h2>
+      <p class="project-feature-description">{{ project.description }}</p>
+      <div class="project-feature-body">
+        {{ project.content | markdownify }}
+      </div>
+    </div>
+  </article>
+{% endfor %}
 </div>
