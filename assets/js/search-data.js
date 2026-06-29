@@ -9,8 +9,8 @@ ninja.data = [{
     handler: () => {
       window.location.href = "/Homepage/";
     },
-  },{id: "nav-publications",
-          title: "Publications",
+  },{id: "nav-research",
+          title: "Research",
           description: "",
           section: "Navigation",
           handler: () => {
@@ -18,10 +18,17 @@ ninja.data = [{
           },
         },{id: "nav-projects",
           title: "Projects",
-          description: "A growing collection of your cool projects.",
+          description: "Selected research and benchmark projects.",
           section: "Navigation",
           handler: () => {
             window.location.href = "/Homepage/projects/";
+          },
+        },{id: "nav-blogs",
+          title: "Blogs",
+          description: "",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/Homepage/blog/";
           },
         },{id: "post-a-post-with-plotly-js",
         
@@ -375,51 +382,16 @@ ninja.data = [{
           section: "News",},{id: "news-i-have-passed-the-qualifying-exam-for-the-ph-d-program",
           title: 'I have passed the Qualifying Exam for the Ph.D. program !',
           description: "",
-          section: "News",},{id: "projects-project-1",
-          title: 'project 1',
-          description: "with background image",
+          section: "News",},{id: "projects-chinesesafe-benchmark",
+          title: 'ChineseSafe Benchmark',
+          description: "A Chinese Benchmark for Evaluating Safety in Large Language Models",
           section: "Projects",handler: () => {
-              window.location.href = "/Homepage/projects/1_project/";
-            },},{id: "projects-project-2",
-          title: 'project 2',
-          description: "a project with a background image and giscus comments",
+              window.location.href = "/Homepage/projects/chinesesafe-benchmark/";
+            },},{id: "projects-marketpilot",
+          title: 'MarketPilot',
+          description: "A personal dashboard for tracking financial assets of interest",
           section: "Projects",handler: () => {
-              window.location.href = "/Homepage/projects/2_project/";
-            },},{id: "projects-project-3-with-very-long-name",
-          title: 'project 3 with very long name',
-          description: "a project that redirects to another website",
-          section: "Projects",handler: () => {
-              window.location.href = "/Homepage/projects/3_project/";
-            },},{id: "projects-project-4",
-          title: 'project 4',
-          description: "another without an image",
-          section: "Projects",handler: () => {
-              window.location.href = "/Homepage/projects/4_project/";
-            },},{id: "projects-project-5",
-          title: 'project 5',
-          description: "a project with a background image",
-          section: "Projects",handler: () => {
-              window.location.href = "/Homepage/projects/5_project/";
-            },},{id: "projects-project-6",
-          title: 'project 6',
-          description: "a project with no image",
-          section: "Projects",handler: () => {
-              window.location.href = "/Homepage/projects/6_project/";
-            },},{id: "projects-project-7",
-          title: 'project 7',
-          description: "with background image",
-          section: "Projects",handler: () => {
-              window.location.href = "/Homepage/projects/7_project/";
-            },},{id: "projects-project-8",
-          title: 'project 8',
-          description: "an other project with a background image and giscus comments",
-          section: "Projects",handler: () => {
-              window.location.href = "/Homepage/projects/8_project/";
-            },},{id: "projects-project-9",
-          title: 'project 9',
-          description: "another project with an image 🎉",
-          section: "Projects",handler: () => {
-              window.location.href = "/Homepage/projects/9_project/";
+              window.location.href = "/Homepage/projects/marketpilot/";
             },},{
         id: 'social-cv',
         title: 'CV',
