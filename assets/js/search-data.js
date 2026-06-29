@@ -389,7 +389,7 @@ ninja.data = [{
               window.location.href = "/Homepage/projects/chinesesafe-benchmark/";
             },},{id: "projects-marketpilot",
           title: 'MarketPilot',
-          description: "A personal dashboard for tracking financial assets of interest",
+          description: "A dashboard for tracking financial assets of interest",
           section: "Projects",handler: () => {
               window.location.href = "/Homepage/projects/marketpilot/";
             },},{
