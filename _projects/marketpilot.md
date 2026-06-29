@@ -1,7 +1,7 @@
 ---
 layout: page
 title: MarketPilot
-description: A personal dashboard for tracking financial assets of interest
+description: A dashboard for tracking financial assets of interest
 img: assets/img/projects/marketpilot-dashboard.png
 importance: 1
 category: pet
