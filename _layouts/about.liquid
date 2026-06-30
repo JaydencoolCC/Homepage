@@ -82,11 +82,15 @@ layout: default
     {% endif %}
 
     <!-- Social -->
-    {% if page.social %}
+    {% if page.social or site.contact_note %}
       <div class="social">
-        <div class="contact-icons">{% include social.liquid %}</div>
+        {% if page.social %}
+          <div class="contact-icons">{% include social.liquid %}</div>
+        {% endif %}
 
-        <div class="contact-note">{{ site.contact_note }}</div>
+        {% if site.contact_note %}
+          <div class="contact-note">{{ site.contact_note }}</div>
+        {% endif %}
       </div>
     {% endif %}
 

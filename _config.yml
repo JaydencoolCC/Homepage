@@ -7,7 +7,8 @@ first_name: Hengxiang
 middle_name:
 last_name: Zhang
 name_zh_image: assets/img/publication_preview/name.jpg
-contact_note:
+contact_note: >
+  Feel free to contact me via email: <a href="mailto:Jaydencoolca@hotmail.com">Jaydencoolca@hotmail.com</a>.
 description: > # the ">" symbol means to ignore newlines until "footer_text:"
   A simple, whitespace theme for academics. Based on [*folio](https://github.com/bogoli/-folio) design.
 footer_text: >
