@@ -11,8 +11,8 @@ hide_title: true
 <!-- _pages/publications.md -->
 
 <div class="research-intro" markdown="1">
-My research interests are in trustworthy generative AI and post-training, including safety, privacy and data contamination, as well as diffusion language models and distillation.
-I have worked on safety and data contamination in the past. I also work on reliable LLM evaluation, seeking to identify evaluation illusions and pitfalls that can obscure models’ true capabilities and method performance. Selected papers and projects are listed below.
+My research interests are in trustworthy generative AI and post-training techniques for language models, including safety, privacy, and data contamination, as well as diffusion-based approaches and distillation.
+I have worked on safety and data contamination in the past. I also worked on reliable LLM evaluation, seeking to identify evaluation illusions in diffusion language models that can obscure models’ true capabilities and method performance. Selected papers and projects are listed below.
 </div>
 
 <h2 class="paper-section-title">Papers</h2>

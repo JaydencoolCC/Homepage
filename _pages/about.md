@@ -28,9 +28,9 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-I am a second-year Ph.D. student in Southern University of Science and Technology (SUSTech), supervised by [Prof. Hongxin Wei](https://hongxin001.github.io/). I am grateful to collaborate with [Prof. Sharon Li](https://pages.cs.wisc.edu/~sharonli/). Previously, I worked as an algorithm engineer at [RoboSense Technology](https://www.robosense.ai/en/index/index), developing LiDAR perception algorithms for autonomous driving. Prior to that, I received my M.S. degree from the University of Electronic Science and Technology of China.
+I am a second-year Ph.D. student at Southern University of Science and Technology (SUSTech), supervised by [Prof. Hongxin Wei](https://hongxin001.github.io/). I am grateful to collaborate with [Prof. Sharon Li](https://pages.cs.wisc.edu/~sharonli/). Before my Ph.D., I worked as an algorithm engineer at [RoboSense Technology](https://www.robosense.ai/en/index/index), where I developed LiDAR perception algorithms for autonomous driving. Prior to that, I received my M.S. degree from the University of Electronic Science and Technology of China.
 
-My research lies in Machine Learning, including trustworthy generative AI (e.g., safety, data contamination), diffusion language models, and post-training. I am currently interested in reliably advancing research via AI, specifically in rigorous scientific experimentation, not in automating AI-driven paper generation.
+My research focuses on Machine Learning, including trustworthy generative AI (e.g., safety, data contamination), and post-training techniques for language models, such as diffusion-based approaches and distillation. I am currently interested in advancing research reliably with AI, specifically in rigorous scientific experimentation, not in automating AI-driven paper writing.
 
 <!-- Write your biography here. Tell the world about yourself. Link to your favorite [subreddit](http://reddit.com). You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpg` and put it in the `img/` folder.
 
