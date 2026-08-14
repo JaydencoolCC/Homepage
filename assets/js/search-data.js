@@ -382,7 +382,12 @@ ninja.data = [{
           section: "News",},{id: "news-i-have-passed-the-qualifying-exam-for-the-ph-d-program",
           title: 'I have passed the Qualifying Exam for the Ph.D. program !',
           description: "",
-          section: "News",},{id: "projects-chinesesafe-benchmark",
+          section: "News",},{id: "projects-automatic-dataset-construction",
+          title: 'Automatic Dataset Construction',
+          description: "Innovative automated dataset creation and open-source software for label error detection, robust learning under noisy data",
+          section: "Projects",handler: () => {
+              window.location.href = "/Homepage/projects/automatic-dataset-construction/";
+            },},{id: "projects-chinesesafe-benchmark",
           title: 'ChineseSafe Benchmark',
           description: "A Chinese Benchmark for Evaluating Safety in Large Language Models",
           section: "Projects",handler: () => {
