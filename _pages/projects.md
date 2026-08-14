@@ -28,10 +28,11 @@ hide_title: true
       {% else %}
         {% assign project_url = project.url | relative_url %}
       {% endif %}
-      <article class="project-feature">
+      <article class="project-feature{% if project.img_wide %} project-feature-wide{% endif %}">
         {% if project.img %}
           <a class="project-feature-media" href="{{ project_url }}" {% if project.redirect %}target="_blank" rel="noopener noreferrer"{% endif %} aria-label="{{ project.title }}">
-            {% include figure.liquid loading="eager" path=project.img alt=project.title class="img-fluid" %}
+            {% capture project_image_class %}img-fluid{% if project.img_contain %} project-feature-image-contain{% endif %}{% endcapture %}
+            {% include figure.liquid loading="eager" path=project.img alt=project.title class=project_image_class %}
           </a>
         {% endif %}
         <div class="project-feature-content">

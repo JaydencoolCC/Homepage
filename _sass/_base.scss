@@ -846,7 +846,7 @@ footer.sticky-bottom {
 
     .project-feature {
       display: grid;
-      grid-template-columns: minmax(0, 7fr) minmax(200px, 3fr);
+      grid-template-columns: minmax(0, 6fr) minmax(240px, 4fr);
       gap: 1.75rem;
       align-items: center;
       padding: 1.35rem 0;
@@ -871,11 +871,38 @@ footer.sticky-bottom {
     .project-feature-media img {
       display: block;
       width: 100%;
-      aspect-ratio: 16 / 10;
+      aspect-ratio: 16 / 9;
       object-fit: cover;
       border: 1px solid var(--global-divider-color);
       border-radius: 8px;
       background: var(--global-card-bg-color);
+    }
+
+    .project-feature-media img.project-feature-image-contain {
+      object-fit: contain;
+      background: #fff;
+    }
+
+    .project-feature-wide {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+
+      .project-feature-media {
+        grid-column: 1;
+        grid-row: 2;
+        width: 100%;
+        max-width: 720px;
+        justify-self: center;
+
+        img {
+          aspect-ratio: auto;
+        }
+      }
+
+      .project-feature-content {
+        grid-column: 1;
+        grid-row: 1;
+      }
     }
 
     .project-feature-title {
