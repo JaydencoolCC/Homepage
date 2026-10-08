@@ -123,7 +123,6 @@ blockquote {
       color: var(--global-danger-block-text);
     }
 
-    a,
     h1,
     h2,
     h3,
@@ -131,6 +130,10 @@ blockquote {
     h5,
     h6 {
       color: var(--global-danger-block-title);
+    }
+
+    a {
+      color: var(--global-theme-color);
     }
   }
 }
@@ -399,10 +402,10 @@ ul.task-list input[type="checkbox"] {
   .navbar-nav .nav-item.active > .nav-link {
     background-color: inherit;
     font-weight: bolder;
-    color: var(--global-theme-color);
+    color: var(--global-text-color);
 
     &:hover {
-      color: var(--global-hover-color);
+      color: var(--global-text-color);
     }
   }
 
@@ -923,6 +926,10 @@ footer.sticky-bottom {
       font-family: "Comic Neue", "Comic Sans MS", "Trebuchet MS", sans-serif;
       font-size: 1.06rem;
       line-height: 1.55;
+
+      strong {
+        font-weight: 700;
+      }
 
       a {
         color: #0076bf;

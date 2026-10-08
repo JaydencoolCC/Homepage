@@ -8,4 +8,4 @@ category: pet
 redirect: https://github.com/JaydencoolCC/MarketPilot
 ---
 
-[MarketPilot](https://github.com/JaydencoolCC/MarketPilot) is a personal pet project for reviewing financial assets of interest, not for trading execution or financial advice. Inspired by the need to track holdings and returns across multiple financial platforms, MarketPilot provides a unified and personal dashboard that consolidates this information in single view.
+[MarketPilot](https://github.com/JaydencoolCC/MarketPilot) is a personal pet project for reviewing financial assets of interest, not for trading execution or financial advice. Inspired by the need to track holdings and returns across multiple financial platforms, MarketPilot provides a unified and personal dashboard that consolidates this information in single view. <strong style="color: #d32f2f;">This project does not provide any trading or investment advice.</strong>

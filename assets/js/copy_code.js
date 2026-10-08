@@ -16,8 +16,9 @@ codeBlocks.forEach(function (codeBlock) {
     copyButton.className = "copy";
     copyButton.type = "button";
     copyButton.ariaLabel = "Copy code to clipboard";
+    var copyIcon = codeBlock.closest(".language-bibtex") ? "fa-copy" : "fa-clipboard";
     copyButton.innerText = "Copy";
-    copyButton.innerHTML = '<i class="fa-solid fa-clipboard"></i>';
+    copyButton.innerHTML = '<i class="fa-solid ' + copyIcon + '"></i>';
 
     // get code from code block and copy to clipboard
     copyButton.addEventListener("click", function () {
@@ -39,7 +40,7 @@ codeBlocks.forEach(function (codeBlock) {
 
       setTimeout(function () {
         copyButton.innerText = "Copy";
-        copyButton.innerHTML = '<i class="fa-solid fa-clipboard"></i>';
+        copyButton.innerHTML = '<i class="fa-solid ' + copyIcon + '"></i>';
       }, waitFor);
     });
 
