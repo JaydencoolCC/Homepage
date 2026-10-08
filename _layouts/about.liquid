@@ -7,7 +7,10 @@ layout: default
       {% if site.title == 'blank' %}
         <!-- <span class="font-weight-bold">{{ site.first_name }}</span> {{ site.middle_name }} -->
         <span class="name-inline">
-          <span class="name-en"><span>{{ site.first_name }}</span> {{ site.middle_name }} {{ site.last_name }}</span>
+          <span class="name-en"
+            ><span>{{ site.first_name }}</span> {{ site.middle_name }}
+            {{ site.last_name -}}
+          </span>
           {% if site.name_zh_image %}
             <img class="name-zh-img" src="{{ site.name_zh_image | relative_url }}" alt="Chinese name">
           {% endif %}
@@ -68,9 +71,7 @@ layout: default
 
     <!-- Papers -->
     {% if page.selected_papers or page.working_papers %}
-      <h2>
-        <a href="{{ '/publications/' | relative_url }}" style="color: inherit">Selected</a> Papers
-      </h2>
+      <h2><a href="{{ '/publications/' | relative_url }}" style="color: inherit">Selected</a> Papers</h2>
     {% endif %}
 
     {% if page.selected_papers %}

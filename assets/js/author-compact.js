@@ -26,7 +26,13 @@ function compactPublicationAuthors() {
       .split("|")
       .map((author) => author.trim())
       .filter(Boolean);
-    const authors = rawAuthors.filter((author) => author.replace(/<[^>]+>/g, "").trim().toLowerCase() !== "others");
+    const authors = rawAuthors.filter(
+      (author) =>
+        author
+          .replace(/<[^>]+>/g, "")
+          .trim()
+          .toLowerCase() !== "others"
+    );
     const hasUnlistedAuthors = rawAuthors.length !== authors.length;
 
     list.innerHTML = hasUnlistedAuthors ? joinAuthors(authors, authors.length) : full;
