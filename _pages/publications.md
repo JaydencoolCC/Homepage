@@ -23,3 +23,7 @@ I have worked on safety and data contamination in the past. I also worked on rel
 {% bibliography --group_by none %}
 
 </div>
+
+<div class="research-intro mt-5" markdown="1">
+Personally, I think Jason Wei offers a useful guide to [Practicing AI research](https://www.jasonwei.net/blog/practicing-ai-research). In particular, he also highlights writings by several distinguished scientists, such as Richard Hamming’s [You and Your Research](https://blog.samaltman.com/you-and-your-research).
+</div>

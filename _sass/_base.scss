@@ -260,12 +260,12 @@ ul.task-list input[type="checkbox"] {
   }
 
   a {
-    color: #0076bf;
+    color: var(--global-text-color);
     text-decoration: underline;
     text-underline-offset: 0.13em;
 
     &:hover {
-      color: var(--global-theme-color);
+      color: var(--global-text-color);
     }
   }
 }
