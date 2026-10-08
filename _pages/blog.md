@@ -87,21 +87,23 @@ _styles: |
     {% assign postlist = site.posts %}
   {% endif %}
 
-  {% for post in postlist %}
-    {% capture default_author %}{{ site.first_name }} {{ site.last_name }}{% endcapture %}
-    <li class="blog-list-item">
-      <p class="blog-list-meta">{{ post.author | default: default_author | strip }} - {{ post.date | date: '%-m/%-d/%y' }}</p>
-      {% if post.redirect == blank %}
-        <a class="blog-list-title" href="{{ post.url | relative_url }}">{{ post.title }}</a>
-      {% elsif post.redirect contains '://' %}
-        <a class="blog-list-title" href="{{ post.redirect }}" target="_blank">{{ post.title }}</a>
-      {% else %}
-        <a class="blog-list-title" href="{{ post.redirect | relative_url }}">{{ post.title }}</a>
-      {% endif %}
-    </li>
-  {% endfor %}
+{% for post in postlist %}
+{% capture default_author %}{{ site.first_name }} {{ site.last_name }}{% endcapture %}
+
+<li class="blog-list-item">
+<p class="blog-list-meta">{{ post.author | default: default_author | strip }} - {{ post.date | date: '%-m/%-d/%y' }}</p>
+{% if post.redirect == blank %}
+<a class="blog-list-title" href="{{ post.url | relative_url }}">{{ post.title }}</a>
+{% elsif post.redirect contains '://' %}
+<a class="blog-list-title" href="{{ post.redirect }}" target="_blank">{{ post.title }}</a>
+{% else %}
+<a class="blog-list-title" href="{{ post.redirect | relative_url }}">{{ post.title }}</a>
+{% endif %}
+</li>
+{% endfor %}
+
 </ul>
 
 {% if page.pagination.enabled %}
-  {% include pagination.liquid %}
+{% include pagination.liquid %}
 {% endif %}
