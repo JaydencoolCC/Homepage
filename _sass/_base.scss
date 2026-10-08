@@ -932,12 +932,12 @@ footer.sticky-bottom {
       }
 
       a {
-        color: #0076bf;
+        color: var(--global-text-color);
         text-decoration: underline;
         text-underline-offset: 0.13em;
 
         &:hover {
-          color: #005f99;
+          color: var(--global-text-color);
         }
       }
 
